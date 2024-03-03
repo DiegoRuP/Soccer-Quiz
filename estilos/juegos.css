@@ -1,18 +1,76 @@
-*{
+/* Estilos generales */
+* {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 header {
     display: flex;
     justify-content: space-between; 
     align-items: center; 
-    padding: 3px; 
+    padding: 10px; 
 }
 
-#tiempo {
-    margin: 0;
-}
-
-#puntaje {
+#tiempo, #puntaje {
     margin: 0; 
 }
+
+/* Estilos de los botones */
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #22A699;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 7px 7px 7px black;
+    transition: transform .2s;
+    margin: 20px;
+    height: 80px;
+    width: 80px;
+    position: relative;
+}
+
+.btn-Volver {
+    border: none; 
+    background: transparent; 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-Volver > i {
+    font-size: 50px; 
+}
+
+.btn-Volver:hover {
+    transform: scale(1.1);
+}
+
+/*Estilos para la caja de equipo de jugadores*/
+
+.equipoJugadores{ 
+    float: left; 
+    width: 1645px; 
+    height: 300px; 
+    margin: 30px; 
+    border: 1px solid darkblue; 
+} 
+
+/*Estilos para la caja de imagenes donde van los jugadores*/
+    #cajaimagenes{ 
+        float: left; 
+        width: 1200px; 
+        height: 200px; 
+        margin-left: 200px; 
+        border: 1px solid red; 
+    } 
+
+    .musica {
+        margin-right: 20px; 
+    }    
+
+    
