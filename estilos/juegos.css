@@ -11,6 +11,7 @@ header {
     justify-content: space-between; 
     align-items: center; 
     padding: 10px; 
+    margin-left: 150px;
 }
 
 #tiempo, #puntaje {
@@ -22,31 +23,22 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px;
+    height: 100px;
+    width: 100px;
     background-color: #22A699;
-    border-radius: 50%;
+    border-radius: 40px;
     color: white;
     box-shadow: 7px 7px 7px black;
     transition: transform .2s;
-    margin: 20px;
-    height: 80px;
-    width: 80px;
-    position: relative;
 }
 
-.btn-Volver {
-    border: none; 
-    background: transparent; 
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.btn-Volver > i {
+.btnVolver > i {
     font-size: 50px; 
 }
 
-.btn-Volver:hover {
+.btnVolver:hover {
     transform: scale(1.1);
 }
 
@@ -54,9 +46,9 @@ header {
 
 .equipoJugadores{ 
     float: left; 
-    width: 1645px; 
-    height: 300px; 
-    margin: 30px; 
+    width: 1200px; 
+    height: 250px; 
+    margin: 30px 200px; 
     border: 1px solid darkblue; 
 } 
 
@@ -66,11 +58,22 @@ header {
         width: 1200px; 
         height: 200px; 
         margin-left: 200px; 
+        margin-top: 100px;
         border: 1px solid red; 
     } 
 
-    .musica {
-        margin-right: 20px; 
-    }    
+    .btnMusica{
+        position:absolute;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .btnMusica:hover {
+        transform: scale(1.1);
+    }
+
+    .btnMusica > i {
+        font-size: 50px; 
+    }
 
     
