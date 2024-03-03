@@ -5,34 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/juegos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <title>Document</title>
 </head>
 <body>
-
-    <header>
-        <h3 id="tiempo">Tiempo: </h3>
-        <h3 id="puntaje">Puntaje: </h3>
-    
-        <div class="btnVolver botones">
-            <i class="fas fa-door-open icono"></i>
-        </div>
-    </header>
-
-    <div class="equipoJugadores">
-        <section id="cajasoltar"> 
-            <canvas id="equipos" width="500" height="500"></canvas> 
-        </section> 
-    </div>
-
-    <div class="jugadores">
-        <section id="cajaimagenes" >   
+    <div class="PantallaJuego">
+        <header>
+            <h2 id="tiempo">Tiempo: <span id="contadorTiempo">0:00</span></h2>
+            <h2 id="puntaje">Puntaje: </h2>
         
-        </section> 
-    </div>    
+            <div class="btnVolver botones">
+                <i class="fas fa-door-open icono"></i>
+            </div>
+        </header>
 
-    <div class="btnMusica botones">
-        <i class="fas fa-music"></i>
+        <div class="equipoJugadores">
+            <section id="cajasoltar"> 
+                <canvas id="equipos" width="500" height="500"></canvas> 
+            </section> 
+        </div>
+
+        <div class="jugadores">
+            <section id="cajaimagenes" >   
+            
+            </section> 
+        </div>    
+
+        <div class="btnMusica botones">
+            <i class="fas fa-music"></i>
+        </div>
     </div>
+
+    <script src="juego.js"></script>
 </body>
 </html>

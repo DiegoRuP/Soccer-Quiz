@@ -6,6 +6,16 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: url(../src/estadio.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2{
+    color: white;
+}
+
 header {
     display: flex;
     justify-content: space-between; 
@@ -49,7 +59,7 @@ header {
     width: 1200px; 
     height: 250px; 
     margin: 30px 200px; 
-    border: 1px solid darkblue; 
+    border: 1px solid white; 
 } 
 
 /*Estilos para la caja de imagenes donde van los jugadores*/
@@ -59,7 +69,7 @@ header {
         height: 200px; 
         margin-left: 200px; 
         margin-top: 100px;
-        border: 1px solid red; 
+        border: 1px solid white; 
     } 
 
     .btnMusica{
