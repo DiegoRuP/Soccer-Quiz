@@ -54,12 +54,11 @@ header {
 
 /*Estilos para la caja de equipo de jugadores*/
 
-.equipoJugadores{ 
+.equipoJugadores { 
     float: left; 
     width: 1200px; 
     height: 250px; 
     margin: 30px 200px; 
-    border: 1px solid white; 
 } 
 
 /*Estilos para la caja de imagenes donde van los jugadores*/
@@ -75,8 +74,8 @@ header {
 
     #cajaimagenes img {
         margin: 0 115px; 
-        max-width: 200px; 
-        max-height: 200px; 
+        width: 150PX; 
+        height: 200px; 
         border-radius: 50%; 
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
         transition: transform 0.3s ease; 
@@ -102,6 +101,27 @@ header {
 
     .btnMusica > i {
         font-size: 50px; 
+    }
+
+    /*Estilos para las imagenes del equipo*/
+
+    #cajasoltar { 
+        float: left; 
+        width: 1200px; 
+        height: 200px; 
+        margin-left: 200px; 
+        margin-top: 100px;
+    } 
+
+    #cajasoltar img {
+        margin: 0 20px; 
+        margin-top: -50px;
+        width: 250px; 
+        height: 150px; 
+        border-radius: 50%; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        transition: transform 0.3s ease; 
+
     }
 
     
