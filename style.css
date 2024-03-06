@@ -18,6 +18,12 @@ body{
 .portadaInicio{
     min-height: 100vh; 
     /* CON ESTA INSTRUCCION CUBRE TODA LA PANTALLA DE TODOS LOS DISPOSITIVOS */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+
 }
 
 video{
@@ -30,7 +36,6 @@ video{
 #logoSQ{
     position: relative;
     height: 500px;
-    left: 68vh;
     margin-top: 50px;
 }
 
@@ -38,6 +43,10 @@ video{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button{
+    border: none;
 }
 
 .btnJugar{
@@ -92,3 +101,117 @@ video{
     background-color: #B80000;
 }
 
+a{
+    text-decoration: none;
+}
+
+input[type="number"]{
+    width: 50px;
+
+}
+
+.portadaJugador{
+    background: url(src/fondoJugador.jpg);
+    background-size: cover;
+}
+
+.contenedorJugador{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    height: 100vh;
+}
+
+.infoJugador{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.infoJugador h1{
+    margin: 40px;
+    font-size: 60px;
+}
+
+.infoJugador p{
+    margin-left: 40px;
+    font-size: 22px;
+}
+
+.campoJugador {
+    position: relative;
+    left: 40px;
+    top: 30%;
+    color: white;
+    font-size: 35px;
+    
+}
+
+.campoJugador input[type="text"]{
+    height: 40px;
+    width: 500px;
+    font-size: 30px;
+
+}
+
+.enviarDatos{
+    position: relative;
+    left: 40px;
+    top: 40%;
+    color: white;
+    font-size: 35px;
+}
+
+.enviarDatos input[type="button"]{
+    margin-top: 20px;
+    height: 100px;
+    width: 400px;
+
+    background-color: #B80000;
+    
+    border: none;
+    border-radius: 40px;
+    color: white;
+    box-shadow: 7px 7px 7px black;
+
+    font-size: 30px;
+
+    transition: transform .2s;
+    
+}
+
+.enviarDatos input[type="button"]:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.seleccionarDorsal{
+    display: flex;
+    align-items:end;
+}
+
+.seleccionarDorsal img{
+    position: relative;
+    bottom: 70px;
+    right: 380px;
+
+    height: 600px;
+}
+
+.seleccionarDorsal input[type="number"]{
+    position: relative;
+    bottom: 180px;
+    left: 110px;
+
+    height: 340px;
+    width: 280px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-size: 170px;
+
+    z-index: 1;
+}

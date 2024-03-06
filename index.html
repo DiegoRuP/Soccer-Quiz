@@ -21,23 +21,29 @@
 
         <div class="navegacion">
 
-            <div class="btnOpcion">
-                <i class="fa-solid fa-info"></i>
-            </div>
-
-            <div class="btnOpcion btnJugar">
-                <i class="fa-solid fa-play"></i>
-            </div>
+            <a href="creditos.html">
+                <button class="btnOpcion">
+                    <i class="fa-solid fa-info"></i>
+                </button>
+            </a>
+        
+            <a href="inicioJugador.html">
+                <button class="btnOpcion btnJugar">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </a>
             
-            <div class="btnOpcion">
-                <i class="fa-solid fa-chart-simple"></i>
-            </div>
+            <a href="clasificacion.html">
+                <button class="btnOpcion">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </button>
+            </a>
 
         </div>
 
-        <div class="btnMusica btnOpcion" onclick="toggleAudio()">
+        <button class="btnMusica btnOpcion" onclick="toggleAudio()">
             <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
-        </div>
+        </button>
     </div>
 
     <audio id="mainSong" loop src="audio/mainSong.mp3" type="audio/mpeg"></audio>
