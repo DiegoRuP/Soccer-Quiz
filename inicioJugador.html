@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos/style.css">
     <link rel="icon" type="image/png" href="src/logo.png">
 
     
@@ -14,40 +14,52 @@
 </head>
 <body class="portadaJugador">
 
-    <div class="contenedorJugador">
+    <form action="">
 
-        <div class="infoJugador">
-            
-            <h1> Necesitamos conocerte </h1>
+        <div class="contenedorJugador">
 
-            <p>Bienvenido pumamigo! Nos gustaría conocerte, por favor ingresa <br> tu nombre y tu dorsal, 
-            para darle inicio a nuestro <br> proximo partido, solo faltas tú! </p>
-            
-            <br>
-
-            <div class="campoJugador">
-                <span> Nombre del jugador</span><br>
-                <input type="text" id="jugador" />
+            <div class="infoJugador">
+                
+                <h1> Necesitamos conocerte </h1>
+    
+                <p>Bienvenido pumamigo! Nos gustaría conocerte, por favor ingresa <br> tu nombre y tu dorsal, 
+                para darle inicio a nuestro <br> proximo partido, solo faltas tú! </p>
+                
+                <br>
+    
+                <div class="campoJugador">
+                    <span> Nombre del jugador</span><br>
+                    <input type="text" id="jugador" required/>
+                </div>
+    
+                <div class="enviarDatos">
+                    <span> Comencemos el juego! </span><br>
+                    <input type="button" value="Presiona aquí" onclick="recibirDatos()">
+                </div>
+                
+    
             </div>
-
-            <div class="enviarDatos">
-                <span> Comencemos el juego! </span><br>
-                <input type="button" value="Presiona aquí" onclick="recibirDatos()">
+    
+            <div class="seleccionarDorsal">
+                <input type="number" id="dorsal" max="100" min="0"  required/>
+                <img src="src/Jersey.png" alt="jersey">
+            </div>
+    
+    
+            <a href="index.html">
+                <button type="button" class="btnVolver btnOpcion">
+                    <i class="fas fa-door-open icono"></i>
+                </button>
+            </a>
+            
+            <div class="btnMusica btnOpcion" onclick="toggleAudio()">
+                <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
             </div>
             
-
         </div>
 
-        <div class="seleccionarDorsal">
-            <input type="number" id="dorsal" max="100" min="0"/>
-            <img src="src/Jersey.png" alt="jersey">
-        </div>
-
-        <div class="btnMusica btnOpcion" onclick="toggleAudio()">
-            <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
-        </div>
-        
-    </div>
+    </form>
+    
 
     
 

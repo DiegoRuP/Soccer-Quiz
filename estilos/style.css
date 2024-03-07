@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'fuenteSoccer';
-    src: url(fonts/Facon.otf);
+    src: url(../fonts/Facon.otf);
 }
 
 *{
@@ -101,6 +101,14 @@ button{
     background-color: #B80000;
 }
 
+.btnVolver{
+    position:absolute;
+    top: 20px;
+    right: 20px;
+
+    background-color: #B80000;
+}
+
 a{
     text-decoration: none;
 }
@@ -111,7 +119,7 @@ input[type="number"]{
 }
 
 .portadaJugador{
-    background: url(src/fondoJugador.jpg);
+    background: url(../src/fondoJugador.jpg);
     background-size: cover;
 }
 
