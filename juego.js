@@ -1,7 +1,8 @@
 //PARA ACTUALIZAR EL TIEMPO
 const contadorTiempo = document.getElementById("contadorTiempo");
-
 let segundos = 0;
+let cont = 0;
+let puntos = 0;
 
 function actualizarTiempo() {
     segundos++;
@@ -17,49 +18,45 @@ setInterval(actualizarTiempo, 1000);
 
 const cajaimagenes = document.getElementById("cajaimagenes");
 const cajasoltar = document.getElementById("cajasoltar");
-
-const jugadoresEquipos = {
-  "cr7.png": "AlNassr", 
-  "messi.png": "Miami", 
-  "haaland.png": "City",
-  "dibu.png": "Aston",
-  "chicharo.png": "Chivas",
-  "marco.png": "Strikers", 
-  "benzema.png": "AlItthad",
-  "mbappe.png": "PSG", 
-  "bellingham.png": "Madrid"
-};
+let jugadoresConEquipos = [
+  { imagen: "bellingham.png", equipo: "Madrid" },
+  { imagen: "benzema.png", equipo: "AlItthad" },
+  { imagen: "chicharo.png", equipo: "Chivas" },
+  { imagen: "cr7.png", equipo: "AlNassr" },
+  { imagen: "dibu.png", equipo: "Aston" },
+  { imagen: "haaland.png", equipo: "City" },
+  { imagen: "marco.png", equipo: "Strikers" },
+  { imagen: "mbappe.png", equipo: "PSG" },
+  { imagen: "messi.png", equipo: "Miami" }
+];
 
 function obtenerImagenesAleatorias() {
-  const jugadores = Object.keys(jugadoresEquipos);
   const jugadoresAleatorios = [];
   
   // Escoger 3 jugadores aleatorios con su respectivo equipo
   while (jugadoresAleatorios.length < 3) {
-    const jugadorAleatorio = jugadores[Math.floor(Math.random() * jugadores.length)];
-    if (!jugadoresAleatorios.includes(jugadorAleatorio)) {
+    const jugadorAleatorio = jugadoresConEquipos[Math.floor(Math.random() * jugadoresConEquipos.length)];
+    if (!jugadoresAleatorios.some(jugador => jugador.imagen === jugadorAleatorio.imagen)) {
       jugadoresAleatorios.push(jugadorAleatorio);
     }
   }
   
-  return jugadoresAleatorios.map(jugador => {
-    return {
-      imagen: jugador,
-      equipo: jugadoresEquipos[jugador]
-    };
-  });
+  return jugadoresAleatorios;
 }
 
 //Mostrar las imagenes de los jugadores
 function mostrarImagenesAleatorias() {
-  const jugadoresConEquipos = obtenerImagenesAleatorias();
   cajaimagenes.innerHTML = "";
   cajasoltar.innerHTML = "";
-  jugadoresConEquipos.forEach(jugador => {
+  
+  const jugadoresConEquiposActualizado = obtenerImagenesAleatorias();
+  
+  jugadoresConEquiposActualizado.forEach((jugador, index) => {
     const imgJugador = document.createElement("img");
     imgJugador.src = `src/${jugador.imagen}`;
     imgJugador.alt = "Jugador";
     imgJugador.draggable = true;
+    imgJugador.id = `jugador_${index}`; // Asignar un ID único
     imgJugador.setAttribute("data-equipo", jugador.equipo);
     imgJugador.addEventListener("dragstart", iniciarArrastre);
     cajaimagenes.appendChild(imgJugador);
@@ -82,23 +79,49 @@ function permitirSoltar(event) {
   event.preventDefault();
 }
 
+function actualizarPuntos(){
+  const pts = document.getElementById("puntaje");
+  pts.innerHTML = "Puntos: "+puntos;
+}
+
 function soltar(event) {
   event.preventDefault();
   var data = event.dataTransfer.getData("text");
   var elementoArrastrado = document.getElementById(data);
   
-  // Verificar si el elemento sobre el que se está soltando tiene el atributo data-equipo
-  if (event.target.hasAttribute("data-equipo")) {
-    var equipoJugador = elementoArrastrado.getAttribute("data-equipo");
-    var equipoCaja = event.target.getAttribute("data-equipo");
+  if (elementoArrastrado) {
+    if (event.target.hasAttribute("data-equipo")) {
+      var equipoJugador = elementoArrastrado.getAttribute("data-equipo");
+      var equipoCaja = event.target.getAttribute("data-equipo");
 
-    if (equipoJugador === equipoCaja) {
-      console.log("El jugador se soltó en el lugar correcto");
-    } else {
-      console.log("El jugador no se soltó en el lugar correcto");
-    }
-  }
+      if (equipoJugador === equipoCaja) {
+        console.log("correcto");
+        cont++;
+        puntos = puntos + 3;
+        actualizarPuntos();
+        
+        // Eliminar el jugador del array principal
+        jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
+        
+        if (cont === 3) {
+          console.log("Nivel Completado");
+          mostrarImagenesAleatorias();
+        }else if(cont === 6){
+          console.log("felicidades se acabo el juego");
+        }
+      } else {
+        console.log("incorrecto");
+        if (puntos >= 2) {
+          puntos = puntos - 2;
+        } else {
+          puntos = 0;
+        }
+        actualizarPuntos();
+      }
+    } 
+  } 
 }
 
 
+actualizarPuntos();
 mostrarImagenesAleatorias();
