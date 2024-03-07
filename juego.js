@@ -59,16 +59,46 @@ function mostrarImagenesAleatorias() {
     const imgJugador = document.createElement("img");
     imgJugador.src = `src/${jugador.imagen}`;
     imgJugador.alt = "Jugador";
+    imgJugador.draggable = true;
+    imgJugador.setAttribute("data-equipo", jugador.equipo);
+    imgJugador.addEventListener("dragstart", iniciarArrastre);
     cajaimagenes.appendChild(imgJugador);
 
     const imgEquipo = document.createElement("img");
     imgEquipo.src = `src/Banquillos/${jugador.equipo}.png`;
     imgEquipo.alt = "Equipo";
+    imgEquipo.setAttribute("data-equipo", jugador.equipo);
+    imgEquipo.addEventListener("dragover", permitirSoltar);
+    imgEquipo.addEventListener("drop", soltar);
     cajasoltar.appendChild(imgEquipo);
   });
 }
 
+function iniciarArrastre(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function permitirSoltar(event) {
+  event.preventDefault();
+}
+
+function soltar(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  var elementoArrastrado = document.getElementById(data);
+  
+  // Verificar si el elemento sobre el que se está soltando tiene el atributo data-equipo
+  if (event.target.hasAttribute("data-equipo")) {
+    var equipoJugador = elementoArrastrado.getAttribute("data-equipo");
+    var equipoCaja = event.target.getAttribute("data-equipo");
+
+    if (equipoJugador === equipoCaja) {
+      console.log("El jugador se soltó en el lugar correcto");
+    } else {
+      console.log("El jugador no se soltó en el lugar correcto");
+    }
+  }
+}
+
+
 mostrarImagenesAleatorias();
-
-
-
