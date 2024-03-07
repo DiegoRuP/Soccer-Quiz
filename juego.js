@@ -99,6 +99,7 @@ function soltar(event) {
         cont++;
         puntos = puntos + 3;
         actualizarPuntos();
+        elementoArrastrado.draggable = false;
         
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
