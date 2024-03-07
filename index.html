@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilos/style.css">
     <link rel="icon" type="image/png" href="src/logo.png">
 
-    <script src="main.js"></script>
+    
     <script src="https://kit.fontawesome.com/f646e31ace.js" crossorigin="anonymous"></script>
 
     <title>Bienvenido a Soccer Quiz</title>
@@ -16,29 +16,40 @@
     <div class="portadaInicio">
 
         <video src="src/videoEstadio.mp4" autoplay="true" muted="true" loop="true"></video>
-        <h1 id="tituloPortada">Soccer Quiz</h1>
+    
         <img id="logoSQ" src="src/logo.png" alt="logoSQ">
 
         <div class="navegacion">
 
-            <div class="btnOpcion">
-                <i class="fa-solid fa-info"></i>
-            </div>
-
-            <div class="btnOpcion btnJugar">
-                <i class="fa-solid fa-play"></i>
-            </div>
+            <a href="creditos.html">
+                <button class="btnOpcion">
+                    <i class="fa-solid fa-info"></i>
+                </button>
+            </a>
+        
+            <a href="inicioJugador.html">
+                <button class="btnOpcion btnJugar">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </a>
             
-            <div class="btnOpcion">
-                <i class="fa-solid fa-chart-simple"></i>
-            </div>
+            <a href="clasificacion.html">
+                <button class="btnOpcion">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </button>
+            </a>
 
         </div>
 
-        <div class="btnMusica btnOpcion">
-            <i class="fa-solid fa-music"></i>
-        </div>
+        <button class="btnMusica btnOpcion" onclick="toggleAudio()">
+            <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
+        </button>
     </div>
+
+    <audio id="mainSong" loop src="audio/mainSong.mp3" type="audio/mpeg"></audio>
+
+    <script src="main.js"></script>
     
 </body>
 </html>
+
