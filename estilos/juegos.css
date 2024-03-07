@@ -1,0 +1,86 @@
+/* Estilos generales */
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../src/estadio.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2{
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    padding: 10px; 
+    margin-left: 150px;
+}
+
+#tiempo, #puntaje {
+    margin: 0; 
+}
+/*Estilos para la caja de equipo de jugadores*/
+
+.equipoJugadores { 
+    float: left; 
+    width: 1200px; 
+    height: 250px; 
+    margin: 30px 200px; 
+} 
+
+/*Estilos para la caja de imagenes donde van los jugadores*/
+    #cajaimagenes{ 
+        float: left; 
+        width: 1200px; 
+        height: 200px; 
+        margin-left: 200px; 
+        margin-top: 100px;
+    } 
+
+/*Estilos para las imagenes de los jugadores*/
+
+    #cajaimagenes img {
+        margin: 0 115px; 
+        width: 150PX; 
+        height: 200px; 
+        border-radius: 50%; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        transition: transform 0.3s ease; 
+      }
+      
+      /*Efecto Hover*/
+
+      #cajaimagenes img:hover {
+        transform: scale(1.1); 
+      }
+
+    /*Estilos para las imagenes del equipo*/
+
+    #cajasoltar { 
+        float: left; 
+        width: 1200px; 
+        height: 200px; 
+        margin-left: 200px; 
+        margin-top: 100px;
+    } 
+
+    #cajasoltar img {
+        margin: 0 20px; 
+        margin-top: -50px;
+        width: 250px; 
+        height: 150px; 
+        border-radius: 50%; 
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        transition: transform 0.3s ease; 
+
+    }
+
+    

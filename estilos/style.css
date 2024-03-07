@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'fuenteSoccer';
+    src: url(../fonts/Facon.otf);
+}
+
+*{
+    font-family: 'fuenteSoccer';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    /* CON ESTA INSTRUCCION CUBRE TODA LA PANTALLA DE TODOS LOS DISPOSITIVOS */
+}
+
+.portadaInicio{
+    min-height: 100vh; 
+    /* CON ESTA INSTRUCCION CUBRE TODA LA PANTALLA DE TODOS LOS DISPOSITIVOS */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+
+}
+
+video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+}
+
+#logoSQ{
+    position: relative;
+    height: 500px;
+    margin-top: 50px;
+}
+
+.navegacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    border: none;
+}
+
+.btnJugar{
+    height: 250px !important;
+    width: 250px !important;
+    border-radius: 50% !important;
+
+    transition: transform .2s;
+}
+
+.btnJugar > i {
+    font-size: 100px !important;
+}
+
+.btnJugar:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.btnOpcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+
+    background-color: #FF9800;
+    
+    border-radius: 40px;
+    color: white;
+    box-shadow: 7px 7px 7px black;
+
+    transition: transform .2s;
+}
+
+.btnOpcion:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.btnOpcion > i {
+    font-size: 40px;
+}
+
+.btnMusica{
+    position:absolute;
+    bottom: 20px;
+    right: 20px;
+
+    background-color: #B80000;
+}
+
+.btnVolver{
+    position:absolute;
+    top: 20px;
+    right: 20px;
+
+    background-color: #B80000;
+}
+
+a{
+    text-decoration: none;
+}
+
+input[type="number"]{
+    width: 50px;
+
+}
+
+.portadaJugador{
+    background: url(../src/fondoJugador.jpg);
+    background-size: cover;
+}
+
+.contenedorJugador{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    height: 100vh;
+}
+
+.infoJugador{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.infoJugador h1{
+    margin: 40px;
+    font-size: 60px;
+}
+
+.infoJugador p{
+    margin-left: 40px;
+    font-size: 22px;
+}
+
+.campoJugador {
+    position: relative;
+    left: 40px;
+    top: 30%;
+    color: white;
+    font-size: 35px;
+    
+}
+
+.campoJugador input[type="text"]{
+    height: 40px;
+    width: 500px;
+    font-size: 30px;
+
+}
+
+.enviarDatos{
+    position: relative;
+    left: 40px;
+    top: 40%;
+    color: white;
+    font-size: 35px;
+}
+
+.enviarDatos input[type="button"]{
+    margin-top: 20px;
+    height: 100px;
+    width: 400px;
+
+    background-color: #B80000;
+    
+    border: none;
+    border-radius: 40px;
+    color: white;
+    box-shadow: 7px 7px 7px black;
+
+    font-size: 30px;
+
+    transition: transform .2s;
+    
+}
+
+.enviarDatos input[type="button"]:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.seleccionarDorsal{
+    display: flex;
+    align-items:end;
+}
+
+.seleccionarDorsal img{
+    position: relative;
+    bottom: 70px;
+    right: 380px;
+
+    height: 600px;
+}
+
+.seleccionarDorsal input[type="number"]{
+    position: relative;
+    bottom: 180px;
+    left: 110px;
+
+    height: 340px;
+    width: 280px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    font-size: 170px;
+
+    z-index: 1;
+}
