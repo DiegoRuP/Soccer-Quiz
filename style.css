@@ -4,8 +4,7 @@
 }
 
 *{
-    /* font-family: 'fuenteSoccer'; */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'fuenteSoccer';
     text-align: center;
 }
 
@@ -66,4 +65,22 @@ html, body {
     background-image: url(img/vestidores.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.btnVolver{
+    position:absolute;
+    top: 20px;
+    right: 20px;
+
+    background-color: #B80000;
+}
+
+
+.btnOpcion:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.btnOpcion > i {
+    font-size: 40px;
 }
