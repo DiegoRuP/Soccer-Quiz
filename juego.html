@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/juegos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="estilos/style.css">
+
+    <script src="https://kit.fontawesome.com/f646e31ace.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,10 +14,6 @@
         <header>
             <h2 id="tiempo">Tiempo: <span id="contadorTiempo">0:00</span></h2>
             <h2 id="puntaje">Puntaje: </h2>
-        
-            <div class="btnVolver botones">
-                <i class="fas fa-door-open icono"></i>
-            </div>
         </header>
 
         <div class="equipoJugadores">
@@ -46,11 +44,22 @@
             </section> 
         </div>    
 
-        <div class="btnMusica botones">
-            <i class="fas fa-music"></i>
+        <a href="inicioJugador.html">
+            <button type="button" class="btnVolver btnOpcion">
+                <i class="fas fa-door-open icono"></i>
+            </button>
+        </a>
+
+        <div class="btnMusica btnOpcion" onclick="toggleAudio()">
+            <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
         </div>
     </div>
 
+    <audio id="mainSong" loop src="audio/mainSong.mp3" type="audio/mpeg"></audio>
+    
+    <script src="main.js"></script>
     <script src="juego.js"></script>
+
+    
 </body>
 </html>

@@ -18,7 +18,7 @@ h2{
 
 header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: flex-start; 
     align-items: center; 
     padding: 10px; 
     margin-left: 150px;
@@ -29,31 +29,6 @@ header {
 #tiempo, #puntaje {
     margin: 0; 
 }
-
-/* Estilos de los botones */
-.botones {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    height: 100px;
-    width: 100px;
-    background-color: #22A699;
-    border-radius: 40px;
-    color: white;
-    box-shadow: 7px 7px 7px black;
-    transition: transform .2s;
-}
-
-
-.btnVolver > i {
-    font-size: 50px; 
-}
-
-.btnVolver:hover {
-    transform: scale(1.1);
-}
-
 /*Estilos para la caja de equipo de jugadores*/
 
 .equipoJugadores { 
@@ -88,22 +63,6 @@ header {
       #cajaimagenes img:hover {
         transform: scale(1.1); 
       }
-
-      /*Estilos para el boton de musica*/
-
-    .btnMusica{
-        position:absolute;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .btnMusica:hover {
-        transform: scale(1.1);
-    }
-
-    .btnMusica > i {
-        font-size: 50px; 
-    }
 
     /*Estilos para las imagenes del equipo*/
 
