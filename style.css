@@ -6,6 +6,13 @@
 *{
     font-family: 'fuenteSoccer';
     text-align: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    border: none;
 }
 
 #cartas {
@@ -30,36 +37,31 @@
 }
 
 #titulo{
-    font-weight: bold;
-    color: orange;
+    color: #FF9800;
 }
-
 
 .btnMusica{
     position:absolute;
     bottom: 20px;
     right: 20px;
+    background-color: #B80000;
 }
 
 #felicidades{
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     background-image: url(img/fondoFelicidades.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-}
+} 
 
 #creditos{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     background-image: url(img/vestidores.png);
@@ -69,12 +71,10 @@ html, body {
 
 .btnVolver{
     position:absolute;
-    top: 20px;
-    right: 20px;
-
+    top: -10px;
+    right: -20px;
     background-color: #B80000;
 }
-
 
 .btnOpcion:hover{
     transform: scale(1.1);
@@ -83,4 +83,32 @@ html, body {
 
 .btnOpcion > i {
     font-size: 40px;
+}
+
+.btnOpcion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+
+    background-color: #FF9800;
+    
+    border-radius: 40px;
+    color: white;
+    box-shadow: 7px 7px 7px black;
+
+    transition: transform .2s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btnJugarDeNuevo{
+    position:absolute;
+    bottom: 20px;
+    left: 20px;
 }
