@@ -105,7 +105,6 @@ button{
     position:absolute;
     top: 20px;
     right: 20px;
-
     background-color: #B80000;
 }
 
@@ -359,14 +358,22 @@ input[type="number"]{
     height: 300px;
 }
 
-#titulo{
+#tituloFelicidades{
+    font-size: 20px;
+    text-align: center;
     color: #FF9800;
+}
+
+#tituloFelicidadesChido{
+    text-align: center;
+    color: #FF9800;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 
 #felicidades{
     height: 100vh;
-
     background-image: url(../img/fondoFelicidades.png);
     background-size: cover;
     background-repeat: no-repeat;
