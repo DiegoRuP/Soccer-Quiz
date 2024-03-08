@@ -1,5 +1,3 @@
-
-
 //CONTROL DE AUDIO Y DE BOTON
 
 var audio = document.getElementById("mainSong");
@@ -72,3 +70,5 @@ function recibirDatos() {
     }
 
 }
+
+//RECUPERAR LOS DATOS DEL LOCALSTORAGE E IMPRIMIRLOS CUANDO SE TERMINE EL JUEGO
