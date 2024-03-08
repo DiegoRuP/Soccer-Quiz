@@ -1,5 +1,3 @@
-
-
 //CONTROL DE AUDIO Y DE BOTON
 
 var audio = document.getElementById("mainSong");
@@ -31,20 +29,46 @@ function recibirDatos() {
     if(jugador === "" || dorsal === "") {
 
         alert("Por favor, completa todos los campos requeridos.");
-        return false;
+        return;
 
     } else {
 
-        localStorage.jugador = document.getElementById("jugador").value;
-        localStorage.dorsal = document.getElementById("dorsal").value;
-        localStorage.puntaje = 0;
+        var jugadoresGuardados = JSON.parse(localStorage.getItem('jugadores')) || [];
 
-        jugador = localStorage.jugador;
-        dorsal = localStorage.dorsal;
-        puntaje = localStorage.puntaje;
-        
+        // Buscar si el jugador ya existe en la lista
+        var jugadorExistente = jugadoresGuardados.find(function(jugadorGuardado) {
+            return jugadorGuardado.nombre === jugador && jugadorGuardado.dorsal === dorsal;
 
-        window.open("juego.html");
+        });
+
+        if (jugadorExistente) {
+            alert("El jugador ya existe. Su puntaje actual es: " + jugadorExistente.puntaje);
+
+            //ASIGNACION DE UN VALOR 
+            jugadorExistente.puntaje = 10;
+
+            //GUARDAR CAMBIOS 
+            localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+
+        } else {
+
+            var nuevoJugador = {
+                nombre: jugador,
+                puntaje: 0,
+                dorsal: dorsal
+            };
+
+            // Agregar el nuevo jugador a la lista
+            jugadoresGuardados.push(nuevoJugador);
+
+            // Guardar la lista actualizada en el localStorage
+            localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+
+        }
+
+        window.location.href = "juego.html";
     }
 
 }
+
+//RECUPERAR LOS DATOS DEL LOCALSTORAGE E IMPRIMIRLOS CUANDO SE TERMINE EL JUEGO
