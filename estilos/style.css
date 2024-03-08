@@ -400,3 +400,14 @@ input[type="number"]{
 #pumaTexto{
     color: white;
 }
+
+#tituloCreditos{
+    text-align: center;
+}
+
+#textoCreditos{
+    text-align: center;
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+}
