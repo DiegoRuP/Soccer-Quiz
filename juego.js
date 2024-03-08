@@ -109,6 +109,7 @@ function soltar(event) {
           mostrarImagenesAleatorias();
         }else if(cont === 6){
           console.log("felicidades se acabo el juego");
+          window.location.href = "felicidades.html";
         }
       } else {
         console.log("incorrecto");

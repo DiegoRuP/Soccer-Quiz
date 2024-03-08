@@ -66,7 +66,7 @@ function recibirDatos() {
 
         }
 
-        window.open("juego.html");
+        window.location.href = "juego.html";
     }
 
 }
