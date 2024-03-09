@@ -87,3 +87,41 @@ header {
         height: 150px;  
         transition: transform 0.3s ease; 
     }
+
+    #lienzo{
+        background-image: url("src/Banquillos/Madrid.png");
+        background-size: cover;
+    }
+
+    #lienzo2{
+        background-image: url("src/Banquillos/AlNassr.png");
+        background-size: cover;
+    }
+    #lienzo3{
+        background-image: url("src/Banquillos/Aston.png");
+        background-size: cover;
+    }
+    #lienzo4{
+        background-image: url("src/Banquillos/Chivas.png");
+        background-size: cover;
+    }
+    #lienzo5{
+        background-image: url("src/Banquillos/City.png");
+        background-size: cover;
+    }
+    #lienzo6{
+        background-image: url("src/Banquillos/Madrid.png");
+        background-size: cover;
+    }
+    #lienzo7{
+        background-image: url("src/Banquillos/Miami.png");
+        background-size: cover;
+    }
+    #lienzo8{
+        background-image: url("src/Banquillos/PSG.png");
+        background-size: cover;
+    }
+    #lienzo8{
+        background-image: url("src/Banquillos/Strikers.png");
+        background-size: cover;
+    }
