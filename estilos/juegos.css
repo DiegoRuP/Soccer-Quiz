@@ -60,7 +60,7 @@ header {
         width: 150PX; 
         height: 200px; 
         border-radius: 50%; 
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  */
         transition: transform 0.3s ease; 
       }
       

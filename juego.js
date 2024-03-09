@@ -85,6 +85,7 @@ function actualizarPuntos(){
   pts.innerHTML = "Puntos: "+puntos;
 }
 
+
 function soltar(event) {
   event.preventDefault();
   var data = event.dataTransfer.getData("text");
@@ -126,12 +127,19 @@ function soltar(event) {
   }
 }
 
-function soltado(event){
+// Obtener el canvas y el contexto
+const soltado = document.getElementById('lienzo');
+const lienzo = soltado.getContext('2d');
+
+// Agregar un listener para el evento 'drop'
+soltado.addEventListener('drop', soltarImagen, false);
+
+function soltarImagen(event) {
   event.preventDefault();
-  var id = e.dataTransfer.getData('Text');
-  var elemento = document.getElementById(id);
-  var posx = e.pageX - soltar.offsetLeft; //corrdenada x para el soltado
-  var posy = e.pageY - soltar.offsetTop; //corrdenada y para el soltado
+  const id = event.dataTransfer.getData('text');
+  const elemento = document.getElementById(id);
+  const posx = event.pageX - soltado.offsetLeft; // Coordenada x para soltar
+  const posy = event.pageY - soltado.offsetTop; // Coordenada y para soltar
   lienzo.drawImage(elemento, posx, posy);
 }
 
