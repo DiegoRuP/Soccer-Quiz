@@ -228,38 +228,51 @@ input[type="number"]{
 #tituloPosiciones{
     padding: 5px;
     font-size: 80px;
+    margin-top: 120px;
+    text-align: center;
 }
+
+
 
 .podio{
     position: absolute;
-    margin-top: 320px;
-    margin-left: 100px;
-    width: 700px;
+    margin-top: 200px;
+    margin-left: 50px;
+    width: 1000px;
 }
 
 .Jugador1{
     position: absolute;
-    margin-top: 330px;
-    margin-left: 390px;
+    margin-top: 210px;
+    margin-left: 450px;
+    background-color: rgb(230, 172, 46);
+    padding: 20px;
+    border-radius: 20px;
+    
 }
 
 .Jugador2{
     position: absolute;
-    margin-top: 400px;
-    margin-left: 160px;
+    margin-top: 300px;
+    margin-left: 80px;
+    background-color: #8d8d8d;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .Jugador3{
     position: absolute;
-    margin-top: 450px;
-    margin-left: 600px;
+    margin-top: 350px;
+    margin-left: 700px;
+    background-color: #e07f30;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .corona{
     position: absolute;
-    width: 200px;
-    margin-top: 150px;
-    margin-left: 350px;
+    width: 250px;
+    margin-left: 400px;
 }
 
 .NombreJugadores > h2{
@@ -296,12 +309,12 @@ input[type="number"]{
 .tablaJugadores {
     flex: 1;
     align-self: flex-start; 
-    margin-top: 300px;
-    transform: translateX(-50px); 
+    margin-top: 150px;
+    transform: translateX(220px); 
 }
 
 .tablaJugadores table {
-    width: 100%;
+    width: 60%;
     border-collapse: collapse;
     background-color: rgba(255, 255, 255, 0.8); 
     border-radius: 10px; 
@@ -333,8 +346,8 @@ input[type="number"]{
 }
 
 
-.primeratabla{
-    background-color: #B80000;
+.encabezadoTabla{
+    background-color: #B80000 !important;
 }
 
 #cartas {

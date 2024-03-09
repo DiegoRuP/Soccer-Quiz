@@ -80,9 +80,23 @@ function permitirSoltar(event) {
   event.preventDefault();
 }
 
-function actualizarPuntos(){
+function actualizarPuntos() {
   const pts = document.getElementById("puntaje");
-  pts.innerHTML = "Puntos: "+puntos;
+  pts.innerHTML = "Puntos: " + puntos;
+
+  var jugadoresGuardados = JSON.parse(localStorage.getItem('jugadores')) || [];
+
+  if (jugadoresGuardados.length > 0) {
+      var ultimoJugador = jugadoresGuardados[jugadoresGuardados.length - 1];
+      
+      // Actualizar el puntaje del último jugador en el array
+      ultimoJugador.puntaje = puntos;
+
+      // Guardar cambios en el localStorage
+      localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+  } else {
+      console.log("No hay jugadores almacenados en el array.");
+  }
 }
 
 
