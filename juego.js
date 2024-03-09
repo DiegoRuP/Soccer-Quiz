@@ -67,6 +67,7 @@ function mostrarImagenesAleatorias() {
     imgEquipo.setAttribute("data-equipo", jugador.equipo);
     imgEquipo.addEventListener("dragover", permitirSoltar);
     imgEquipo.addEventListener("drop", soltar);
+    imgEquipo.addEventListener('drop',soltado);
     cajasoltar.appendChild(imgEquipo);
   });
 }
@@ -100,6 +101,7 @@ function soltar(event) {
         puntos = puntos + 3;
         actualizarPuntos();
         elementoArrastrado.draggable = false;
+        elementoArrastrado.style.visibility = "hidden";
         
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
@@ -121,9 +123,17 @@ function soltar(event) {
         actualizarPuntos();
       }
     } 
-  } 
+  }
 }
 
+function soltado(event){
+  event.preventDefault();
+  var id = e.dataTransfer.getData('Text');
+  var elemento = document.getElementById(id);
+  var posx = e.pageX - soltar.offsetLeft; //corrdenada x para el soltado
+  var posy = e.pageY - soltar.offsetTop; //corrdenada y para el soltado
+  lienzo.drawImage(elemento, posx, posy);
+}
 
 actualizarPuntos();
 mostrarImagenesAleatorias();

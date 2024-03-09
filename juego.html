@@ -9,24 +9,53 @@
     <script src="https://kit.fontawesome.com/f646e31ace.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="PantallaJuego">
+        <br>
         <header>
-            <h2 id="tiempo">Tiempo: <span id="contadorTiempo">0:00</span></h2>
-            <h2 id="puntaje">Puntaje: </h2>
+            <h1 id="tiempo">Tiempo: <span id="contadorTiempo">0:00</span></h1>
+            <h1 id="puntaje">Puntaje: </h1>
         </header>
+        <br><br><br><br><br>
 
         <div class="equipoJugadores">
             <section id="cajasoltar"> 
-                <img src="src/Banquillos/AlItthad.png" alt="" data-equipo="AlItthad">
-                <img src="src/Banquillos/AlNassr.png" alt="" data-equipo="AlNassr">
-                <img src="src/Banquillos/Aston.png" alt="" data-equipo="Aston">
-                <img src="src/Banquillos/Chivas.png" alt="" data-equipo="Chivas">
-                <img src="src/Banquillos/City.png" alt="" data-equipo="City">
-                <img src="src/Banquillos/Madrid.png" alt="" data-equipo="Madrid">
-                <img src="src/Banquillos/Miami.png" alt="" data-equipo="Miami">
-                <img src="src/Banquillos/PSG.png" alt="" data-equipo="PSG">
-                <img src="src/Banquillos/Strikers.png" alt="" data-equipo="Strikers">
+                <canvas data-equipo="AlItthad"  id="lienzo">
+                <img src="src/Banquillos/AlItthad.png" alt="">
+                </canvas>
+
+                <canvas data-equipo="AlNassr" id="lienzo">
+                    <img src="src/Banquillos/AlNassr.png" alt="">
+                </canvas>
+                
+                <canvas data-equipo="Aston" id="lienzo">
+                    <img src="src/Banquillos/Aston.png" alt="">
+                </canvas>
+
+                <canvas data-equipo="Chivas" id="lienzo">
+                    <img src="src/Banquillos/Chivas.png" alt="">
+                </canvas>
+                
+                <canvas data-equipo="City" id="lienzo">
+                    <img src="src/Banquillos/City.png" alt="">
+                </canvas>
+                
+                <canvas data-equipo="Madrid" id="lienzo">
+                    <img src="src/Banquillos/Madrid.png" alt="">
+                </canvas>
+
+                <canvas  data-equipo="Miami" id="lienzo">
+                    <img src="src/Banquillos/Miami.png" alt="">
+                </canvas>
+                
+                <canvas data-equipo="PSG" id="lienzo">
+                    <img src="src/Banquillos/PSG.png" alt="">
+                </canvas>
+
+                <canvas data-equipo="Strikers" id="lienzo">
+                    <img src="src/Banquillos/Strikers.png" alt="">
+                </canvas>
             </section> 
         </div>
 
@@ -58,8 +87,6 @@
     <audio id="mainSong" loop src="audio/mainSong.mp3" type="audio/mpeg"></audio>
     
     <script src="main.js"></script>
-    <script src="juego.js"></script>
-
-    
+    <script src="juego.js"></script>   
 </body>
 </html>
