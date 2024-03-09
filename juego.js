@@ -15,7 +15,6 @@ function actualizarTiempo() {
 // Iniciar el contador de tiempo
 setInterval(actualizarTiempo, 1000);
 
-
 const cajaimagenes = document.getElementById("cajaimagenes");
 const cajasoltar = document.getElementById("cajasoltar");
 let jugadoresConEquipos = [
@@ -139,6 +138,13 @@ function soltar(event) {
   } 
 }
 
-
 actualizarPuntos();
 mostrarImagenesAleatorias();
+
+// //obtener datos de localStorage
+// const nombreJugador = localStorage.getItem('nombre');
+// const puntaje = localStorage.getItem('puntaje');
+
+// //imprimir los datos
+// document.getElementById('nombreJugador').innerHTML = nombreJugador;
+// document.getElementById('puntos').innerHTML = puntaje;
