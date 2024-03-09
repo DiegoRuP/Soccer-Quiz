@@ -26,33 +26,17 @@
             <img class="podio" src="src/podio.webp" alt="Imagen no cargada">
             <div class="NombreJugadores">
                 <img class="corona" src="src/corona.png" alt="">
-                <h2 class="Jugador1">Jugador1</h2>
-                <h2 class="Jugador2">Jugador2</h2>
-                <h2 class="Jugador3">Jugador3</h2>
+                <h2 class="Jugador1" id="1ero">Jugador1</h2>
+                <h2 class="Jugador2" id="2do">Jugador2</h2>
+                <h2 class="Jugador3" id="3ero">Jugador3</h2>
             </div>
         </div>
 
         <div class="tablaJugadores">
-            <table border="1">
+            <table id="tablaPosiciones" border="1">
                 <tr class="primeratabla">
                     <td>Futbolero</td>
                     <td>Puntaje</td>
-                </tr>
-                <tr>
-                    <td>Nombre1</td>
-                    <td>Puntaje1</td>
-                </tr>
-                <tr>
-                    <td>Nombre2</td>
-                    <td>Puntaje2</td>
-                </tr>
-                <tr>
-                    <td>Nombre3</td>
-                    <td>Puntaje3</td>
-                </tr>
-                <tr>
-                    <td>Nombre4</td>
-                    <td>Puntaje4</td>
                 </tr>
             </table>
         </div>
@@ -61,6 +45,11 @@
     <div class="btnMusica btnOpcion" onclick="toggleAudio()">
         <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
     </div>
+
+    <script src="llenarTabla.js"></script>
+    <script>
+        llenarTablaPosiciones();
+    </script>
     
 </body>
 </html>
