@@ -18,15 +18,15 @@ setInterval(actualizarTiempo, 1000);
 const cajaimagenes = document.getElementById("cajaimagenes");
 const cajasoltar = document.getElementById("cajasoltar");
 let jugadoresConEquipos = [
-  { imagen: "bellingham.png", equipo: "Madrid" },
-  { imagen: "benzema.png", equipo: "AlItthad" },
-  { imagen: "chicharo.png", equipo: "Chivas" },
-  { imagen: "cr7.png", equipo: "AlNassr" },
-  { imagen: "dibu.png", equipo: "Aston" },
-  { imagen: "haaland.png", equipo: "City" },
-  { imagen: "marco.png", equipo: "Strikers" },
-  { imagen: "mbappe.png", equipo: "PSG" },
-  { imagen: "messi.png", equipo: "Miami" }
+  { imagen: "bellingham.png", equipo: "Madrid", audio: "audio/bellingham.wav", audioError: "audio/error.mp3", nombre: "Bellingham" },
+  { imagen: "benzema.png", equipo: "AlItthad", audio: "audio/benzema.wav", audioError: "audio/error.mp3", nombre: "Benzema" },
+  { imagen: "chicharo.png", equipo: "Chivas", audio: "audio/chicharo.wav", audioError: "audio/error.mp3", nombre: "Chicharito" },
+  { imagen: "cr7.png", equipo: "AlNassr", audio: "audio/cr7.wav", audioError: "audio/error.mp3", nombre: "Cristiano Ronaldo" },
+  { imagen: "dibu.png", equipo: "Aston", audio: "audio/dibu.wav", audioError: "audio/error.mp3", nombre: "Dibu Martinez" },
+  { imagen: "haaland.png", equipo: "City", audio: "audio/haaland.wav", audioError: "audio/error.mp3", nombre: "Haaland" },
+  { imagen: "marco.png", equipo: "Strikers", audio: "audio/marco.wav", audioError: "audio/error.mp3", nombre: "Marco Fabian" },
+  { imagen: "mbappe.png", equipo: "PSG", audio: "audio/mbappe.wav", audioError: "audio/error.mp3", nombre: "Mbappe" },
+  { imagen: "messi.png", equipo: "Miami", audio: "audio/messi.wav", audioError: "audio/error.mp3", nombre: "Messi" }
 ];
 
 function obtenerImagenesAleatorias() {
@@ -128,7 +128,19 @@ function soltar(event) {
         puntos = puntos + 3;
         actualizarPuntos();
         elementoArrastrado.draggable = false;
-        
+
+        //reproducir el sonido
+        var jugadorSoltado = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
+        if (jugadorSoltado && jugadorSoltado.audio) {
+          const audioJugador = new Audio(jugadorSoltado.audio);
+          audioJugador.play();
+        }
+
+        //mostrar el nombre del jugador
+        if (jugadorSoltado && jugadorSoltado.nombre){
+          document.getElementById("AlIttihad").innerHTML = ("Benzema");
+        }
+
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
         
@@ -147,6 +159,14 @@ function soltar(event) {
           puntos = 0;
         }
         actualizarPuntos();
+
+        //repoducir sonido de error
+        var jugadorSoltadoError = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
+        if (jugadorSoltadoError && jugadorSoltadoError.audioError) {
+          const audioError = new Audio(jugadorSoltadoError.audioError);
+          audioError.play();
+        }
+
       }
     } 
   } 
@@ -154,13 +174,6 @@ function soltar(event) {
 
 
 
+
 actualizarPuntos();
 mostrarImagenesAleatorias();
-
-// //obtener datos de localStorage
-// const nombreJugador = localStorage.getItem('nombre');
-// const puntaje = localStorage.getItem('puntaje');
-
-// //imprimir los datos
-// document.getElementById('nombreJugador').innerHTML = nombreJugador;
-// document.getElementById('puntos').innerHTML = puntaje;
