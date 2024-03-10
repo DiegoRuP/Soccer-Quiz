@@ -18,15 +18,15 @@ setInterval(actualizarTiempo, 1000);
 const cajaimagenes = document.getElementById("cajaimagenes");
 const cajasoltar = document.getElementById("cajasoltar");
 let jugadoresConEquipos = [
-  { imagen: "bellingham.png", equipo: "Madrid", audio: "audio/bellingham.wav", audioError: "audio/error.mp3", nombre: "Bellingham" },
-  { imagen: "benzema.png", equipo: "AlItthad", audio: "audio/benzema.wav", audioError: "audio/error.mp3", nombre: "Benzema" },
-  { imagen: "chicharo.png", equipo: "Chivas", audio: "audio/chicharo.wav", audioError: "audio/error.mp3", nombre: "Chicharito" },
-  { imagen: "cr7.png", equipo: "AlNassr", audio: "audio/cr7.wav", audioError: "audio/error.mp3", nombre: "Cristiano Ronaldo" },
-  { imagen: "dibu.png", equipo: "Aston", audio: "audio/dibu.wav", audioError: "audio/error.mp3", nombre: "Dibu Martinez" },
-  { imagen: "haaland.png", equipo: "City", audio: "audio/haaland.wav", audioError: "audio/error.mp3", nombre: "Haaland" },
-  { imagen: "marco.png", equipo: "Strikers", audio: "audio/marco.wav", audioError: "audio/error.mp3", nombre: "Marco Fabian" },
-  { imagen: "mbappe.png", equipo: "PSG", audio: "audio/mbappe.wav", audioError: "audio/error.mp3", nombre: "Mbappe" },
-  { imagen: "messi.png", equipo: "Miami", audio: "audio/messi.wav", audioError: "audio/error.mp3", nombre: "Messi" }
+  { imagen: "bellingham.png", equipo: "Madrid", audio: "audio/bellingham.wav", audioError: "audio/error.mp3", nombre: "Bellingham", auidioNombre: "audio/bellinghamVoz.mp3" },
+  { imagen: "benzema.png", equipo: "AlItthad", audio: "audio/benzema.wav", audioError: "audio/error.mp3", nombre: "Benzema", auidioNombre: "audio/benzemaVoz.mp3" },
+  { imagen: "chicharo.png", equipo: "Chivas", audio: "audio/chicharo.wav", audioError: "audio/error.mp3", nombre: "Chicharito", auidioNombre: "audio/chicharoVoz.mp3" },
+  { imagen: "cr7.png", equipo: "AlNassr", audio: "audio/cr7.wav", audioError: "audio/error.mp3", nombre: "Cristiano Ronaldo", auidioNombre: "audio/cr7Voz.mp3" },
+  { imagen: "dibu.png", equipo: "Aston", audio: "audio/dibu.wav", audioError: "audio/error.mp3", nombre: "Dibu Martinez", auidioNombre: "audio/dibuVoz.mp3" },
+  { imagen: "haaland.png", equipo: "City", audio: "audio/haaland.wav", audioError: "audio/error.mp3", nombre: "Haaland", auidioNombre: "audio/haalandVoz.mp3" },
+  { imagen: "marco.png", equipo: "Strikers", audio: "audio/marco.wav", audioError: "audio/error.mp3", nombre: "Marco Fabian", auidioNombre: "audio/marcoVoz.mp3" },
+  { imagen: "mbappe.png", equipo: "PSG", audio: "audio/mbappe.wav", audioError: "audio/error.mp3", nombre: "Mbappe", auidioNombre: "audio/mbappeVoz.mp3" },
+  { imagen: "messi.png", equipo: "Miami", audio: "audio/messi.wav", audioError: "audio/error.mp3", nombre: "Messi", auidioNombre: "audio/messiVoz.mp3" }
 ];
 
 function obtenerImagenesAleatorias() {
@@ -156,6 +156,14 @@ function soltar(event) {
           const audioJugador = new Audio(jugadorSoltado.audio);
           audioJugador.play();
         }
+      
+        //repoducir sonido con el nombre del jugador
+        setTimeout(function() {
+          if (jugadorSoltado && jugadorSoltado.auidioNombre) {
+            const audioJugador = new Audio(jugadorSoltado.auidioNombre);
+            audioJugador.play();
+          }
+        }, 8000);
 
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
