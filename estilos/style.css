@@ -358,7 +358,6 @@ input[type="number"]{
     width: 200px;
     padding: 20px;
     margin: 10px;
-    border: 1.5px solid orange;
     border-radius: 2%;
     transition: transform 0.3s ease-in-out;
     color: teal;
@@ -369,6 +368,7 @@ input[type="number"]{
 .carta img{
     width: 200px;
     height: 300px;
+    margin-left: -25px;
 }
 
 #tituloFelicidades{
@@ -424,3 +424,4 @@ input[type="number"]{
     bottom: 40px;
     left: 100px;
 }
+
