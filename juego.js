@@ -43,6 +43,15 @@ function obtenerImagenesAleatorias() {
   return jugadoresAleatorios;
 }
 
+function cambiarOrdenAleatorio(elementos) {
+  for (let i = elementos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [elementos[i], elementos[j]] = [elementos[j], elementos[i]];
+  }
+  return elementos;
+}
+
+
 //Mostrar las imagenes de los jugadores
 function mostrarImagenesAleatorias() {
   cajaimagenes.innerHTML = "";
@@ -66,6 +75,17 @@ function mostrarImagenesAleatorias() {
     imgEquipo.setAttribute("data-equipo", jugador.equipo);
     imgEquipo.addEventListener("dragover", permitirSoltar);
     imgEquipo.addEventListener("drop", soltar);
+    cajasoltar.appendChild(imgEquipo);
+  });
+
+  // Obtener todas las imágenes de equipos dentro de cajasoltar
+  const imagenesEquipos = Array.from(cajasoltar.querySelectorAll("img"));
+
+  // Cambiar el orden de las imágenes aleatoriamente
+  const imagenesAleatorias = cambiarOrdenAleatorio(imagenesEquipos);
+
+  // Volver a agregar las imágenes en el orden aleatorio
+  imagenesAleatorias.forEach(imgEquipo => {
     cajasoltar.appendChild(imgEquipo);
   });
 }
@@ -134,11 +154,6 @@ function soltar(event) {
         if (jugadorSoltado && jugadorSoltado.audio) {
           const audioJugador = new Audio(jugadorSoltado.audio);
           audioJugador.play();
-        }
-
-        //mostrar el nombre del jugador
-        if (jugadorSoltado && jugadorSoltado.nombre){
-          document.getElementById("AlIttihad").innerHTML = ("Benzema");
         }
 
         // Eliminar el jugador del array principal
