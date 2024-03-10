@@ -148,7 +148,7 @@ function soltar(event) {
         actualizarPuntos();
         elementoArrastrado.draggable = false;
         elementoArrastrado.hidden = true;
-        event.target.hidden = true;
+        event.target.hidden = false;
 
         //reproducir el sonido
         var jugadorSoltado = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
