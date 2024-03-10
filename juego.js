@@ -90,12 +90,26 @@ function actualizarPuntos() {
       // Actualizar el puntaje del último jugador en el array
       ultimoJugador.puntaje = puntos;
 
-      // Guardar cambios en el localStorage
-      localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+      // Obtener el último tiempo registrado
+      var ultimoTiempo = contadorTiempo.textContent;
+
+      if (cont === 6) {
+          // Asignar el tiempo al último objeto en el array
+          ultimoJugador.tiempo = ultimoTiempo;
+
+          // Guardar cambios en el localStorage
+          localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+
+          window.location.href = "felicidades.html";
+      } else {
+          // Guardar cambios en el localStorage (solo si no es el final del juego)
+          localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+      }
   } else {
       console.log("No hay jugadores almacenados en el array.");
   }
 }
+
 
 
 function soltar(event) {
@@ -137,6 +151,8 @@ function soltar(event) {
     } 
   } 
 }
+
+
 
 actualizarPuntos();
 mostrarImagenesAleatorias();

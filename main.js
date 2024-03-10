@@ -43,10 +43,6 @@ function recibirDatos() {
 
         if (jugadorExistente) {
             alert("El jugador ya existe. Su puntaje actual es: " + jugadorExistente.puntaje);
-
-            //ASIGNACION DE UN VALOR 
-            jugadorExistente.puntaje = 10;
-
             //GUARDAR CAMBIOS 
             localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
 
@@ -55,7 +51,8 @@ function recibirDatos() {
             var nuevoJugador = {
                 nombre: jugador,
                 puntaje: 0,
-                dorsal: dorsal
+                dorsal: dorsal,
+                tiempo: 0
             };
 
             // Agregar el nuevo jugador a la lista

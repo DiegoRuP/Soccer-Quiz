@@ -24,7 +24,16 @@ header {
     margin-left: 150px;
 }
 
-  
+.PantallaJuego{
+    margin-top: 120px;
+    margin-left: 150px;
+    font-size: 25px;
+}
+
+.PantallaJuego #puntaje{
+    margin-left: 800px;
+}
+
 
 #tiempo, #puntaje {
     margin: 0; 
