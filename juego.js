@@ -61,13 +61,15 @@ function mostrarImagenesAleatorias() {
     imgJugador.addEventListener("dragstart", iniciarArrastre);
     cajaimagenes.appendChild(imgJugador);
 
-    const imgEquipo = document.createElement("img");
-    imgEquipo.src = `src/Banquillos/${jugador.equipo}.png`;
+    //tuneacion canva
+    const imgEquipo = document.createElement("canvas");
+    imgEquipo.id=`lienzo-${jugador.equipo}`;
+    imgEquipo.style = `background-image: url(src/Banquillos/${jugador.equipo}.png);
+    background-size: contain; background-repeat: no-repeat;`;
     imgEquipo.alt = "Equipo";
     imgEquipo.setAttribute("data-equipo", jugador.equipo);
     imgEquipo.addEventListener("dragover", permitirSoltar);
     imgEquipo.addEventListener("drop", soltar);
-    imgEquipo.addEventListener('drop',soltado);
     cajasoltar.appendChild(imgEquipo);
   });
 }
@@ -117,7 +119,19 @@ function soltar(event) {
         actualizarPuntos();
         elementoArrastrado.draggable = false;
         elementoArrastrado.style.visibility = "hidden";
-        
+
+        //EMPIEZA TUNEACION
+
+        soltarImg = document.getElementById("lienzo-"+equipoJugador);
+
+        lienzo = soltarImg.getContext('2d');
+
+        console.log(elementoArrastrado);
+
+        lienzo.drawImage(elementoArrastrado, 5, 5, 150,150);
+
+        // TERMINA
+
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
         
@@ -139,22 +153,6 @@ function soltar(event) {
       }
     } 
   }
-}
-
-// Obtener el canvas y el contexto
-const soltado = document.getElementById('lienzo');
-const lienzo = soltado.getContext('2d');
-
-// Agregar un listener para el evento 'drop'
-soltado.addEventListener('drop', soltarImagen, false);
-
-function soltarImagen(event) {
-  event.preventDefault();
-  const id = event.dataTransfer.getData('text');
-  const elemento = document.getElementById(id);
-  const posx = event.pageX - soltado.offsetLeft; // Coordenada x para soltar
-  const posy = event.pageY - soltado.offsetTop; // Coordenada y para soltar
-  lienzo.drawImage(elemento, posx, posy);
 }
 
 actualizarPuntos();
