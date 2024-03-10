@@ -155,6 +155,16 @@ function soltar(event) {
         if (jugadorSoltado && jugadorSoltado.audio) {
           const audioJugador = new Audio(jugadorSoltado.audio);
           audioJugador.play();
+
+          //mostrar nombre del jugador
+          if (jugadorSoltado.nombre) {
+            const nombreJugadorElement = document.getElementById("nombreJugador");
+            nombreJugadorElement.innerHTML = jugadorSoltado.nombre;
+        
+            setTimeout(() => {
+                nombreJugadorElement.innerHTML = ""; //limpiar etiqueta despues de 8 segundos
+            }, 8000);
+          }
         }
       
         //repoducir sonido con el nombre del jugador
