@@ -26,6 +26,9 @@ body{
 
 }
 
+
+
+
 video{
     position: fixed;
     right: 0;
@@ -375,6 +378,15 @@ input[type="number"]{
     font-size: 20px;
     text-align: center;
     color: #FF9800;
+
+#titulo1{
+    color: #1dc547;
+    margin-top: 150px;
+}
+
+#titulo{
+    color: #dd7e30;
+
 }
 
 #tituloFelicidadesChido{
@@ -385,11 +397,20 @@ input[type="number"]{
 }
 
 
-#felicidades{
+#felicidades1{
     height: 100vh;
     background-image: url(../img/fondoFelicidades.png);
     background-size: cover;
     background-repeat: no-repeat;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
+
+#nombreJugador, #tiempo, #puntos{
+    color: rgb(231, 231, 231);
 }
 
 
@@ -424,4 +445,3 @@ input[type="number"]{
     bottom: 40px;
     left: 100px;
 }
-

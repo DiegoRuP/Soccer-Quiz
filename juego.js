@@ -15,19 +15,18 @@ function actualizarTiempo() {
 // Iniciar el contador de tiempo
 setInterval(actualizarTiempo, 1000);
 
-
 const cajaimagenes = document.getElementById("cajaimagenes");
 const cajasoltar = document.getElementById("cajasoltar");
 let jugadoresConEquipos = [
-  { imagen: "bellingham.png", equipo: "Madrid" },
-  { imagen: "benzema.png", equipo: "AlItthad" },
-  { imagen: "chicharo.png", equipo: "Chivas" },
-  { imagen: "cr7.png", equipo: "AlNassr" },
-  { imagen: "dibu.png", equipo: "Aston" },
-  { imagen: "haaland.png", equipo: "City" },
-  { imagen: "marco.png", equipo: "Strikers" },
-  { imagen: "mbappe.png", equipo: "PSG" },
-  { imagen: "messi.png", equipo: "Miami" }
+  { imagen: "bellingham.png", equipo: "Madrid", audio: "audio/bellingham.wav", audioError: "audio/error.mp3", nombre: "Bellingham", auidioNombre: "audio/bellinghamVoz.mp3" },
+  { imagen: "benzema.png", equipo: "AlItthad", audio: "audio/benzema.wav", audioError: "audio/error.mp3", nombre: "Benzema", auidioNombre: "audio/benzemaVoz.mp3" },
+  { imagen: "chicharo.png", equipo: "Chivas", audio: "audio/chicharo.wav", audioError: "audio/error.mp3", nombre: "Chicharito", auidioNombre: "audio/chicharoVoz.mp3" },
+  { imagen: "cr7.png", equipo: "AlNassr", audio: "audio/cr7.wav", audioError: "audio/error.mp3", nombre: "Cristiano Ronaldo", auidioNombre: "audio/cr7Voz.mp3" },
+  { imagen: "dibu.png", equipo: "Aston", audio: "audio/dibu.wav", audioError: "audio/error.mp3", nombre: "Dibu Martinez", auidioNombre: "audio/dibuVoz.mp3" },
+  { imagen: "haaland.png", equipo: "City", audio: "audio/haaland.wav", audioError: "audio/error.mp3", nombre: "Haaland", auidioNombre: "audio/haalandVoz.mp3" },
+  { imagen: "marco.png", equipo: "Strikers", audio: "audio/marco.wav", audioError: "audio/error.mp3", nombre: "Marco Fabian", auidioNombre: "audio/marcoVoz.mp3" },
+  { imagen: "mbappe.png", equipo: "PSG", audio: "audio/mbappe.wav", audioError: "audio/error.mp3", nombre: "Mbappe", auidioNombre: "audio/mbappeVoz.mp3" },
+  { imagen: "messi.png", equipo: "Miami", audio: "audio/messi.wav", audioError: "audio/error.mp3", nombre: "Messi", auidioNombre: "audio/messiVoz.mp3" }
 ];
 
 function obtenerImagenesAleatorias() {
@@ -43,6 +42,15 @@ function obtenerImagenesAleatorias() {
   
   return jugadoresAleatorios;
 }
+
+function cambiarOrdenAleatorio(elementos) {
+  for (let i = elementos.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [elementos[i], elementos[j]] = [elementos[j], elementos[i]];
+  }
+  return elementos;
+}
+
 
 //Mostrar las imagenes de los jugadores
 function mostrarImagenesAleatorias() {
@@ -72,6 +80,17 @@ function mostrarImagenesAleatorias() {
     imgEquipo.addEventListener("drop", soltar);
     cajasoltar.appendChild(imgEquipo);
   });
+
+  // Obtener todas las imágenes de equipos dentro de cajasoltar
+  const imagenesEquipos = Array.from(cajasoltar.querySelectorAll("canvas"));
+
+  // Cambiar el orden de las imágenes aleatoriamente
+  const imagenesAleatorias = cambiarOrdenAleatorio(imagenesEquipos);
+
+  // Volver a agregar las imágenes en el orden aleatorio
+  imagenesAleatorias.forEach(imgEquipo => {
+    cajasoltar.appendChild(imgEquipo);
+  });
 }
 
 function iniciarArrastre(event) {
@@ -94,13 +113,24 @@ function actualizarPuntos() {
       // Actualizar el puntaje del último jugador en el array
       ultimoJugador.puntaje = puntos;
 
-      // Guardar cambios en el localStorage
-      localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+      // Obtener el último tiempo registrado
+      var ultimoTiempo = contadorTiempo.textContent;
+
+      if (cont === 6) {
+          // Asignar el tiempo al último objeto en el array
+          ultimoJugador.tiempo = ultimoTiempo;
+
+          // Guardar cambios en el localStorage
+          localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+
+      } else {
+          // Guardar cambios en el localStorage (solo si no es el final del juego)
+          localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+      }
   } else {
       console.log("No hay jugadores almacenados en el array.");
   }
 }
-
 
 function soltar(event) {
   event.preventDefault();
@@ -120,8 +150,7 @@ function soltar(event) {
         elementoArrastrado.draggable = false;
         elementoArrastrado.style.visibility = "hidden";
 
-        //EMPIEZA TUNEACION
-
+        //HOLA PARTE DE DRAG
         soltarImg = document.getElementById("lienzo-"+equipoJugador);
 
         lienzo = soltarImg.getContext('2d');
@@ -130,17 +159,54 @@ function soltar(event) {
 
         lienzo.drawImage(elementoArrastrado, 5, 5, 150,150);
 
-        // TERMINA
+        //termina parte de drag
+        elementoArrastrado.hidden = true;
+        event.target.hidden = false;
+
+        //reproducir el sonido
+        var jugadorSoltado = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
+        if (jugadorSoltado && jugadorSoltado.audio) {
+          const audioJugador = new Audio(jugadorSoltado.audio);
+          audioJugador.play();
+
+          //mostrar nombre del jugador
+          if (jugadorSoltado.nombre) {
+            const nombreJugadorElement = document.getElementById("nombreJugador");
+            nombreJugadorElement.innerHTML = jugadorSoltado.nombre;
+        
+            setTimeout(() => {
+                nombreJugadorElement.innerHTML = ""; //limpiar etiqueta despues de 8 segundos
+            }, 8000);
+          }
+        }
+      
+        //repoducir sonido con el nombre del jugador
+        setTimeout(function() {
+          if (jugadorSoltado && jugadorSoltado.auidioNombre) {
+            const audioJugador = new Audio(jugadorSoltado.auidioNombre);
+            audioJugador.play();
+          }
+        }, 8000);
 
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
         
         if (cont === 3) {
           console.log("Nivel Completado");
-          mostrarImagenesAleatorias();
-        }else if(cont === 6){
+          
+          // Esperar 2 segundos antes de mostrar la siguiente ronda
+          setTimeout(() => {
+            mostrarImagenesAleatorias();
+          }, 3000);
+
+        } else if(cont === 6){
+          
+          setTimeout(() => {
           console.log("felicidades se acabo el juego");
           window.location.href = "felicidades.html";
+
+          // Esperar 2 segundos antes de redirigir a la página de felicitaciones
+          }, 4000);
         }
       } else {
         console.log("incorrecto");
@@ -150,6 +216,14 @@ function soltar(event) {
           puntos = 0;
         }
         actualizarPuntos();
+
+        //repoducir sonido de error
+        var jugadorSoltadoError = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
+        if (jugadorSoltadoError && jugadorSoltadoError.audioError) {
+          const audioError = new Audio(jugadorSoltadoError.audioError);
+          audioError.play();
+        }
+
       }
     } 
   }
