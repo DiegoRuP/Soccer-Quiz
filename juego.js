@@ -120,7 +120,6 @@ function actualizarPuntos() {
           // Guardar cambios en el localStorage
           localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
 
-          window.location.href = "felicidades.html";
       } else {
           // Guardar cambios en el localStorage (solo si no es el final del juego)
           localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
@@ -148,6 +147,8 @@ function soltar(event) {
         puntos = puntos + 3;
         actualizarPuntos();
         elementoArrastrado.draggable = false;
+        elementoArrastrado.hidden = true;
+        event.target.hidden = true;
 
         //reproducir el sonido
         var jugadorSoltado = jugadoresConEquipos.find(jugador => jugador.imagen === elementoArrastrado.src.split('/').pop());
@@ -161,10 +162,20 @@ function soltar(event) {
         
         if (cont === 3) {
           console.log("Nivel Completado");
-          mostrarImagenesAleatorias();
-        }else if(cont === 6){
+          
+          // Esperar 2 segundos antes de mostrar la siguiente ronda
+          setTimeout(() => {
+            mostrarImagenesAleatorias();
+          }, 3000);
+
+        } else if(cont === 6){
+          
+          setTimeout(() => {
           console.log("felicidades se acabo el juego");
           window.location.href = "felicidades.html";
+
+          // Esperar 2 segundos antes de redirigir a la página de felicitaciones
+          }, 4000);
         }
       } else {
         console.log("incorrecto");
