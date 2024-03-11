@@ -68,7 +68,8 @@ function recibirDatos() {
                 nombre: jugador,
                 puntaje: 0,
                 dorsal: dorsal,
-                tiempo: 0
+                tiempo: 0,
+                mejorTiempo: 0
             };
 
             // Agregar el nuevo jugador a la lista

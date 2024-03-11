@@ -402,7 +402,7 @@ td{
     font-size: 25px;
 }
 
-#nombreJugador, #tiempo, #puntos{
+#nombreJugador, #tiempo, #puntos, #mejortiempo{
     color: rgb(231, 231, 231);
 }
 

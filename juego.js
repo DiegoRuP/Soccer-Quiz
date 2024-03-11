@@ -120,6 +120,14 @@ function actualizarPuntos() {
           // Asignar el tiempo al último objeto en el array
           ultimoJugador.tiempo = ultimoTiempo;
 
+          if(ultimoJugador.mejorTiempo == 0){
+            ultimoJugador.mejorTiempo = ultimoJugador.tiempo;
+          }else{
+            if(convertirTiempoASegundos(ultimoJugador.tiempo)<convertirTiempoASegundos(ultimoJugador.mejorTiempo)){
+              ultimoJugador.mejorTiempo = ultimoJugador.tiempo;
+            }
+          }
+
           // Guardar cambios en el localStorage
           localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
 
@@ -130,6 +138,13 @@ function actualizarPuntos() {
   } else {
       console.log("No hay jugadores almacenados en el array.");
   }
+}
+
+function convertirTiempoASegundos(tiempo) {
+  var partesTiempo = tiempo.split(":");
+  var minutos = parseInt(partesTiempo[0]);
+  var segundos = parseInt(partesTiempo[1]);
+  return minutos * 60 + segundos;
 }
 
 function soltar(event) {

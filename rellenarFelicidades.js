@@ -10,10 +10,13 @@ function rellenarCampos() {
   
         // Rellenar el tiempo que se tardó
         document.getElementById("tiempo").innerHTML = ultimoJugador.tiempo;
-        console.log("Tiempo del jugador:", ultimoJugador.tiempo);
+        console.log("Tiempo del jugador:", ultimoJugador.mejorTiempo);
+        // Rellenar el tiempo que se tardó
+        document.getElementById("mejortiempo").innerHTML = ultimoJugador.mejorTiempo;
+        console.log("Tiempo del jugador:", ultimoJugador.mejorTiempo);
   
         // Rellenar la puntuación
-        document.getElementById("puntos").innerHTML = "Puntos: "+ultimoJugador.puntaje;
+        document.getElementById("puntos").innerHTML = ultimoJugador.puntaje;
         console.log("Puntuación del jugador:", ultimoJugador.puntaje);
     } else {
         console.log("No hay jugadores almacenados en el array.");

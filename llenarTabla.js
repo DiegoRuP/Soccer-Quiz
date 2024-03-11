@@ -57,7 +57,7 @@ function llenarTablaPosicionesTiempo() {
     
     // Obtener los jugadores del localStorage y ordenarlos por tiempo de menor a mayor (ascendente)
     var jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
-    jugadores.sort((a, b) => convertirTiempoASegundos(a.tiempo) - convertirTiempoASegundos(b.tiempo)); // Ordenar de menor a mayor
+    jugadores.sort((a, b) => convertirTiempoASegundos(a.mejorTiempo) - convertirTiempoASegundos(b.mejorTiempo)); // Ordenar de menor a mayor
 
     // Crear la fila para el encabezado de la tabla
     var filaEncabezado = document.createElement("tr");
@@ -84,7 +84,7 @@ function llenarTablaPosicionesTiempo() {
         var celdaTiempo = document.createElement("td");
 
         celdaNombre.textContent = jugador.nombre;
-        celdaTiempo.textContent = jugador.tiempo;
+        celdaTiempo.textContent = jugador.mejorTiempo;
 
         fila.appendChild(celdaNombre);
         fila.appendChild(celdaTiempo);
