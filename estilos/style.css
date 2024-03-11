@@ -227,27 +227,34 @@ input[type="number"]{
 }
 
 /*CSS DE TABLA DE LIDERATO*/
-
-#tituloPosiciones{
-    padding: 5px;
-    font-size: 80px;
-    margin-top: 120px;
-    text-align: center;
+#contClas{
+    margin: 0 auto;
 }
 
+#tituloPosiciones{  
+    margin: 0 auto;
+    padding: 20px 40px 10px;
+    font-size: 80px;
+    text-align: center;
+    background-color: #B80000;
 
+    border-radius: 20px;
+
+    width: fit-content;
+    height: fit-content;
+}
 
 .podio{
     position: absolute;
-    margin-top: 200px;
-    margin-left: 50px;
-    width: 1000px;
+    top: 55%;
+    left: 35%;
+    width: 600px;
 }
 
 .Jugador1{
     position: absolute;
-    margin-top: 210px;
-    margin-left: 450px;
+    top: 520px;
+    left: 46%;
     background-color: rgb(230, 172, 46);
     padding: 20px;
     border-radius: 20px;
@@ -256,8 +263,8 @@ input[type="number"]{
 
 .Jugador2{
     position: absolute;
-    margin-top: 300px;
-    margin-left: 80px;
+    top: 580px;
+    left: 36%;
     background-color: #8d8d8d;
     padding: 20px;
     border-radius: 20px;
@@ -265,8 +272,8 @@ input[type="number"]{
 
 .Jugador3{
     position: absolute;
-    margin-top: 350px;
-    margin-left: 700px;
+    top: 610px;
+    left: 55%;
     background-color: #e07f30;
     padding: 20px;
     border-radius: 20px;
@@ -274,8 +281,10 @@ input[type="number"]{
 
 .corona{
     position: absolute;
-    width: 250px;
-    margin-left: 400px;
+    width: 150px;
+    top: 390px;
+    left: 875px;
+
 }
 
 .NombreJugadores > h2{
@@ -298,60 +307,46 @@ input[type="number"]{
     z-index: -1;
 }
 
-#contenedorPrincipal {
-    display: flex;
-    align-items: flex-start; 
-}
-
 .podioJugadores {
-    flex: 1;
-    margin-right: 20px;
-    align-self: flex-start; 
+    margin: 0 auto;
 }
 
 .tablaJugadores {
-    flex: 1;
-    align-self: flex-start; 
-    margin-top: 150px;
-    transform: translateX(220px); 
+    position: absolute;
+    top: 30%;
+    left: 5%;
 }
 
-.tablaJugadores table {
-    width: 60%;
-    border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.8); 
-    border-radius: 10px; 
-    overflow: hidden; 
-    border-color: #B80000;
+.tablaJugadoresTiempo {
+    position: absolute;
+    top: 30%;
+    right: 5%;
 }
 
-.tablaJugadores th, .tablaJugadores td {
-    padding: 15px; 
-    text-align: center; 
-    border-bottom: 1px solid #ddd; 
+table{
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    width: 500px;
+    border-radius: 20px;
+    opacity: .9;
+    border: none;
 }
 
-.tablaJugadores th {
-    background-color: #FF9800; 
-    color: white; 
+td{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
 }
 
-.tablaJugadores tr:last-child td {
-    border-bottom: none; 
-}
-
-.tablaJugadores tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.5); 
-}
-
-.tablaJugadores tr:not(.primeratabla):hover {
-    background-color: rgba(255, 255, 255, 0.7); 
+.encabezado-Tiempo, .encabezado-Puntaje {
+    font-weight: bold;
+    background-color: #B80000;
+    color: white;
+    border-bottom: 2px solid #ccc;
 }
 
 
-.encabezadoTabla{
-    background-color: #B80000 !important;
-}
 
 #cartas {
     display: flex;
@@ -378,10 +373,11 @@ input[type="number"]{
     font-size: 20px;
     text-align: center;
     color: #FF9800;
+}
 
 #titulo1{
     color: #1dc547;
-    margin-top: 150px;
+    padding-top: 150px;
 }
 
 #titulo{
@@ -399,15 +395,12 @@ input[type="number"]{
 
 #felicidades1{
     height: 100vh;
-    background-image: url(../img/fondoFelicidades.png);
+    background-image: url(../img/fondoFelicidades.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     font-size: 25px;
 }
-
-
-
 
 #nombreJugador, #tiempo, #puntos{
     color: rgb(231, 231, 231);
@@ -416,7 +409,6 @@ input[type="number"]{
 
 #creditos{
     height: 100vh;
-    
     background-image: url(../img/vestidores.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -427,7 +419,6 @@ input[type="number"]{
     position:absolute;
     bottom: 20px;
     left: 20px;
-
     background-color: #B80000;
 }
 
@@ -437,11 +428,9 @@ input[type="number"]{
 
 #tituloCreditos{
     text-align: center;
+    font-size: 35px;
 }
 
 #textoCreditos{
     text-align: center;
-    position: absolute;
-    bottom: 40px;
-    left: 100px;
 }

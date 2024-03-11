@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style.css">
     <script src="https://kit.fontawesome.com/f646e31ace.js" crossorigin="anonymous"></script>
-    <title>Posiciones</title>
+    <link rel="icon" type="image/png" href="src/logo.png">
+    <title>Soccer Quiz - Clasificación</title>
 </head>
-<body>
+<body id="contClas">
 
     <video id="video-background" autoplay muted loop>
         <source src="src/estadioLuz.mp4" type="video/mp4">
     </video>
-    
+    <br><br><br>
     <h1 id="tituloPosiciones">Tabla de posiciones</h1>
 
     <a href="index.html">
@@ -26,9 +27,9 @@
             <img class="podio" src="src/podio.webp" alt="Imagen no cargada">
             <div class="NombreJugadores">
                 <img class="corona" src="src/corona.png" alt="">
-                <h2 class="Jugador1" id="1ero">Jugador1</h2>
-                <h2 class="Jugador2" id="2do">Jugador2</h2>
-                <h2 class="Jugador3" id="3ero">Jugador3</h2>
+                <h4 class="Jugador1" id="1ero">Pendiente</h4>
+                <h4 class="Jugador2" id="2do">Pendiente</h4>
+                <h4 class="Jugador3" id="3ero">Pendiente</h4>
             </div>
         </div>
 
@@ -40,16 +41,25 @@
                 </tr>
             </table>
         </div>
+
+        <div class="tablaJugadoresTiempo">
+            <table id="tablaPosicionesTiempo" border="1">
+                <tr class="primeratablaTiempo">
+                    <td>Futbolero</td>
+                    <td>Tiempo</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="btnMusica btnOpcion" onclick="toggleAudio()">
         <i id="iconoMusica" class="fa-solid fa-volume-xmark"></i>
     </div>
 
+    <audio id="mainSong" loop src="audio/mainSong.mp3" type="audio/mpeg"></audio>
+
     <script src="llenarTabla.js"></script>
-    <script>
-        llenarTablaPosiciones();
-    </script>
+    <script src="main.js"></script>
     
 </body>
 </html>

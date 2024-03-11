@@ -24,11 +24,18 @@ function toggleAudio() {
 function recibirDatos() {
 
     var jugador = document.getElementById('jugador').value;
+    jugador = jugador.toLowerCase();
     var dorsal = document.getElementById('dorsal').value;
 
     if(jugador === "" || dorsal === "") {
 
-        alert("Por favor, completa todos los campos requeridos.");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos vacíos',
+            text: 'Por favor, completa todos los campos requeridos.',
+        });
+
+        
         return;
 
     } else {
@@ -42,7 +49,16 @@ function recibirDatos() {
         });
 
         if (jugadorExistente) {
-            alert("El jugador ya existe. Su puntaje actual es: " + jugadorExistente.puntaje);
+            console.log("HOOOOLA")
+            Swal.fire({
+                icon: 'success',
+                title: 'Jugador Existente',
+                html: 'El puntaje actual es: ' + jugadorExistente.puntaje + '<br>' + 'Tiempo: ' + jugadorExistente.tiempo,
+                timer: 5000, // 5 segundos
+                timerProgressBar: true, // Barra de progreso
+                showConfirmButton: false // Ocultar el botón de confirmación
+            });
+            
             //GUARDAR CAMBIOS 
             localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
 
@@ -63,7 +79,9 @@ function recibirDatos() {
 
         }
 
-        window.location.href = "juego.html";
+        setTimeout(function() {
+            window.location.href = "juego.html";
+        }, 5000); // 5 segundos
     }
 
 }

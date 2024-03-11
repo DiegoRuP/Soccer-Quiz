@@ -7,25 +7,28 @@
 }
 
 body{
-    background-image: url(../src/fondoJuego.jpg);
+    background-image: url(../src/estadio.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+
+    height: 100vh !important;
 }
 
 h1{
-    color: black;
+    color: whitesmoke !important;
     margin: 0 auto;
     font-weight: bold;
     font-size: 35px;
     background-color: red;
-    border-radius: 15%;
-    padding: 10px;
+    border-radius: 20px;
+    padding: 15px 30px;
 }
 
 h3{
-    color: black !important;
+    color: white !important;
     position: absolute;
-    top: 50%;
+    font-size: 50px;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -35,27 +38,26 @@ header {
     justify-content: flex-start; 
     align-items: center; 
     padding: 10px; 
-    margin-left: 150px;
 }
 
 .PantallaJuego{
-    margin-top: 120px;
-    margin-left: 150px;
     font-size: 25px;
 }
 
+#nombreJugador{
+    position: absolute;
+    
+}
+
 .PantallaJuego #puntaje{
-    margin-left: 800px;
+    margin-left: 500px;
 }
 
 /*Estilos para la caja de equipo de jugadores*/
 
 .equipoJugadores { 
-    float: left; 
-    width: 1200px; 
-    height: 250px; 
-    margin: 30px 200px; 
-    
+    margin: 0 auto;
+    padding-left: 150px;
 } 
 
 /*Estilos para la caja de imagenes donde van los jugadores*/
@@ -63,7 +65,7 @@ header {
         float: left; 
         width: 1200px; 
         height: 200px; 
-        margin-left: 470px; 
+        margin-left: 390px; 
         margin-top: 100px;
     } 
 
@@ -87,18 +89,14 @@ header {
     /*Estilos para las imagenes del equipo*/
 
     #cajasoltar { 
-        float: left; 
-        width: 1200px; 
-        height: 200px; 
-        margin-left: 430px; 
-        margin-top: 100px;
+        text-align: center;
+       margin: 0 auto;
+       width: 100%;
     } 
 
-    #cajasoltar img {
-        margin: 0 20px; 
-        margin-top: -50px;
-        width: 250px; 
-        height: 150px;  
+    #cajasoltar canvas {
+        width: 300px; 
+        height: 200px;  
         transition: transform 0.3s ease; 
     }
 
