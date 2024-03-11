@@ -35,7 +35,6 @@ function recibirDatos() {
             text: 'Por favor, completa todos los campos requeridos.',
         });
 
-        
         return;
 
     } else {
@@ -49,11 +48,11 @@ function recibirDatos() {
         });
 
         if (jugadorExistente) {
-            console.log("HOOOOLA")
+            
             Swal.fire({
                 icon: 'success',
                 title: 'Jugador Existente',
-                html: 'El puntaje actual es: ' + jugadorExistente.puntaje + '<br>' + 'Tiempo: ' + jugadorExistente.tiempo,
+                html: 'El puntaje actual es: ' + jugadorExistente.puntaje + '<br>' + 'Mejor tiempo: ' + jugadorExistente.mejorTiempo,
                 timer: 5000, // 5 segundos
                 timerProgressBar: true, // Barra de progreso
                 showConfirmButton: false // Ocultar el botón de confirmación
@@ -61,6 +60,10 @@ function recibirDatos() {
             
             //GUARDAR CAMBIOS 
             localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
+
+            setTimeout(function() {
+                window.location.href = "juego.html";
+            }, 5000); // 5 segundos
 
         } else {
 
@@ -78,11 +81,10 @@ function recibirDatos() {
             // Guardar la lista actualizada en el localStorage
             localStorage.setItem('jugadores', JSON.stringify(jugadoresGuardados));
 
-        }
-
-        setTimeout(function() {
             window.location.href = "juego.html";
-        }, 5000); // 5 segundos
+        
+        }
+        
     }
 
 }

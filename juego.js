@@ -201,7 +201,7 @@ function soltar(event) {
             const audioJugador = new Audio(jugadorSoltado.auidioNombre);
             audioJugador.play();
           }
-        }, 8000);
+        }, 7000);
 
         // Eliminar el jugador del array principal
         jugadoresConEquipos = jugadoresConEquipos.filter(jugador => jugador.imagen !== elementoArrastrado.src.split('/').pop());
@@ -220,8 +220,8 @@ function soltar(event) {
           console.log("felicidades se acabo el juego");
           window.location.href = "felicidades.html";
 
-          // Esperar 2 segundos antes de redirigir a la página de felicitaciones
-          }, 4000);
+          // Esperar 4 segundos antes de redirigir a la página de felicitaciones
+          }, 10000);
         }
       } else {
         console.log("incorrecto");
